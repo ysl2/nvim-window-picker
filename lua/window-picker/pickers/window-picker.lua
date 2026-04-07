@@ -48,11 +48,7 @@ function M:pick_window()
 	local windows = self:_get_windows()
 
 	if #windows == 0 then
-		vim.notify(
-			'No windows left to pick after filtering',
-			vim.log.levels.WARN
-		)
-		return
+    return vim.api.nvim_get_current_win()
 	end
 
 	if self.autoselect_one and #windows == 1 then
